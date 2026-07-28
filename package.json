@@ -1,0 +1,19 @@
+{
+  "name": "code2mc",
+  "version": "1.0.0",
+  "description": "Code2MC - a modern, beginner-friendly Arduino IDE clone with Library Manager, multi-board support (Arduino, ESP32, RP2040) and Monaco-based editor. Made by Atharva Phadnis.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "keywords": ["arduino", "ide", "esp32", "rp2040", "monaco", "code2mc"],
+  "author": "Atharva Phadnis",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "ws": "^8.18.0"
+  }
+}

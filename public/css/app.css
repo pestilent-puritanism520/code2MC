@@ -1,0 +1,65 @@
+:root{
+  --bg:#0e1116; --bg2:#151a22; --bg3:#1c222c; --border:#242c38;
+  --fg:#e6edf3; --muted:#8b98a9; --accent:#4f8cff; --accent2:#26d07c;
+  --danger:#ff5b6a; --warn:#ffb547;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,sans-serif;font-size:14px}
+button{background:var(--bg3);color:var(--fg);border:1px solid var(--border);padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px}
+button:hover{background:#232b37}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button.primary:hover{filter:brightness(1.1)}
+button.accent{background:var(--accent2);border-color:var(--accent2);color:#062015}
+button.accent:hover{filter:brightness(1.1)}
+select,input{background:var(--bg2);color:var(--fg);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:13px}
+input:focus,select:focus{outline:none;border-color:var(--accent)}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border);gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{font-size:20px}
+.title{font-weight:700;font-size:16px;letter-spacing:.3px}
+.tag{color:var(--muted);font-size:12px;margin-left:6px}
+.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.controls label{color:var(--muted);font-size:12px;margin-left:6px}
+
+.workspace{display:grid;grid-template-columns:220px 1fr 320px;height:calc(100vh - 60px - 220px - 30px);min-height:360px}
+.explorer,.library-panel{background:var(--bg2);border-right:1px solid var(--border);overflow:auto}
+.library-panel{border-right:none;border-left:1px solid var(--border)}
+.library-panel.hidden{display:none}
+.workspace.no-lib{grid-template-columns:220px 1fr}
+
+.panel-head{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:11px;background:var(--bg2);position:sticky;top:0;z-index:1}
+#fileList{list-style:none;margin:0;padding:6px}
+#fileList li{padding:6px 10px;border-radius:6px;cursor:pointer;color:var(--fg);font-size:13px}
+#fileList li:hover{background:var(--bg3)}
+#fileList li.active{background:var(--accent);color:#fff}
+
+.editor-wrap{position:relative;background:#1e1e1e}
+#editor{position:absolute;inset:0}
+
+.lib-search{display:flex;gap:6px;padding:10px}
+.lib-search input{flex:1}
+.lib-section-title{padding:8px 12px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;border-top:1px solid var(--border)}
+.lib-list{padding:6px 8px;display:flex;flex-direction:column;gap:6px}
+.lib-item{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 10px}
+.lib-item .row{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.lib-item .name{font-weight:600}
+.lib-item .ver{color:var(--muted);font-size:11px}
+.lib-item .desc{color:var(--muted);font-size:12px;margin-top:4px;line-height:1.35}
+.lib-item button{padding:4px 10px;font-size:12px}
+
+.console-wrap{border-top:1px solid var(--border);background:var(--bg2);height:220px;display:flex;flex-direction:column}
+#console{margin:0;padding:10px 14px;overflow:auto;font-family:var(--mono);font-size:12.5px;color:#c9d4e2;white-space:pre-wrap;flex:1}
+#console .ok{color:var(--accent2)}
+#console .err{color:var(--danger)}
+#console .warn{color:var(--warn)}
+#console .dim{color:var(--muted)}
+
+.footer{height:30px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);background:var(--bg2);border-top:1px solid var(--border)}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:50}
+.modal[hidden]{display:none}
+.modal-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;min-width:340px;max-width:460px}
+.modal-card h3{margin:0 0 6px}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}

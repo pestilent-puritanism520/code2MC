@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Code2MC — Modern Arduino IDE</title>
+<link rel="stylesheet" href="/css/app.css" />
+<link rel="stylesheet" data-name="vs/editor/editor.main"
+      href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⚡</span>
+      <span class="title">Code2MC</span>
+      <span class="tag">Modern Arduino IDE</span>
+    </div>
+    <div class="controls">
+      <label>Board</label>
+      <select id="boardSelect"></select>
+      <label>Port</label>
+      <select id="portSelect"><option value="">—</option></select>
+      <button id="refreshPorts" title="Refresh ports">⟳</button>
+      <button id="verifyBtn" class="primary">✔ Verify</button>
+      <button id="uploadBtn" class="accent">⬆ Upload</button>
+      <button id="libToggle">📚 Libraries</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="explorer">
+      <div class="panel-head">
+        <span>Sketches</span>
+        <button id="newSketchBtn" title="New sketch">＋</button>
+      </div>
+      <ul id="fileList"></ul>
+    </aside>
+
+    <section class="editor-wrap">
+      <div id="editor"></div>
+    </section>
+
+    <aside class="library-panel" id="libraryPanel">
+      <div class="panel-head">
+        <span>Library Manager</span>
+      </div>
+      <div class="lib-search">
+        <input id="libQuery" placeholder="Search libraries (e.g. DHT)" />
+        <button id="libSearchBtn">Search</button>
+      </div>
+      <div class="lib-section-title">Results</div>
+      <div id="libResults" class="lib-list"></div>
+      <div class="lib-section-title">Installed</div>
+      <div id="libInstalled" class="lib-list"></div>
+    </aside>
+  </main>
+
+  <section class="console-wrap">
+    <div class="panel-head">
+      <span>Console</span>
+      <button id="clearConsole">Clear</button>
+    </div>
+    <pre id="console"></pre>
+  </section>
+
+  <footer class="footer">
+    Made by <strong>Atharva Phadnis</strong> · Code2MC © 2026
+  </footer>
+
+  <div class="modal" id="confirmModal" hidden>
+    <div class="modal-card">
+      <h3 id="confirmTitle">Install library?</h3>
+      <p id="confirmMsg"></p>
+      <div class="modal-actions">
+        <button id="confirmNo">Cancel</button>
+        <button id="confirmYes" class="primary">Install</button>
+      </div>
+    </div>
+  </div>
+
+  <script>window.MonacoEnvironment = { getWorkerUrl: () => 'data:text/javascript;charset=utf-8,' + encodeURIComponent(`self.MonacoEnvironment = { baseUrl: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/' }; importScripts('https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/base/worker/workerMain.js');`) };</script>
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+  <script src="/js/app.js" type="module"></script>
+</body>
+</html>

